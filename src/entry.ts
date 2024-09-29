@@ -27,3 +27,12 @@ const Intents = [
 ]
 
 const CLIENT = new DJS.Client({intents: Intents});
+
+CLIENT.once('ready', () => {
+    logger.info('Bot is ready');
+});
+
+
+
+
+CLIENT.login(process.env.TOKEN);
