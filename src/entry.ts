@@ -2,6 +2,8 @@ import getPrismaClient from "./prismaSingleton";
 import pino from 'pino';
 import * as denv from 'dotenv';
 import * as DJS from 'discord.js';
+import signup from "./commands/signup";
+import leave from "./commands/leave";
 
 const logger = pino()
 
@@ -40,6 +42,12 @@ CLIENT.on('interactionCreate', async (interaction) => {
 
     if (interaction.commandName === 'ping') {
         await interaction.reply('Pong!');
+    }
+    else if (interaction.commandName === 'signup') {
+        await signup(interaction);
+    }
+    else if (interaction.commandName === 'leave') {
+        await leave(interaction);
     }
 })
 
