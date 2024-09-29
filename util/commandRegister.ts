@@ -32,6 +32,15 @@ const Commands = [
     .setDescription('Leave the database'),
 
     new DJS.SlashCommandBuilder()
+    .setName('whitelist')
+    .setDescription('Add someone to your whitelist')
+    .addUserOption(option =>
+        option.setName('user')
+        .setDescription('The user you want to add to your whitelist')
+        .setRequired(true)
+    ),
+
+    new DJS.SlashCommandBuilder()
     .setName('shock')
     .setDescription('Shock someone! >:D')
     .addUserOption(opt =>
