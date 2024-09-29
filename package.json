@@ -17,6 +17,7 @@
     "prisma": "^5.20.0"
   },
   "scripts": {
-    "register": "bun util/commandRegister.ts | pino-pretty"
+    "register": "bun util/commandRegister.ts | pino-pretty",
+    "start": "bun src/entry.ts | pino-pretty"
   }
 }
