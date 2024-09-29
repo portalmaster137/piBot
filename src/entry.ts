@@ -6,6 +6,7 @@ import signup from "./commands/signup";
 import leave from "./commands/leave";
 import whitelist from "./commands/whitelist";
 import shock from "./commands/shock";
+import setaccess from "./commands/setaccess";
 
 const logger = pino()
 
@@ -57,8 +58,8 @@ CLIENT.on('interactionCreate', async (interaction) => {
     else if (interaction.commandName === 'shock') {
         await shock(interaction);
     }
-    else if (interaction.commandName === 'whitelist') {
-        await whitelist(interaction);
+    else if (interaction.commandName === 'setaccess') {
+        await setaccess(interaction);
     }
 })
 

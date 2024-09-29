@@ -25,8 +25,8 @@ export default async function shock(ev: DJS.CommandInteraction) {
         await ev.reply({content: 'You are not allowed to shock this user', ephemeral: true});
         return;
     }
-    
-    await ev.reply({content: `Shocking ${arg_user.username} for ${arg_duration} seconds with intensity ${arg_intensity}`});
+    const msg = `Shocking ${arg_user.username} for ${arg_duration} seconds with intensity ${arg_intensity}`;
+    await ev.reply({content: msg});
     const res = await axios.post('https://do.pishock.com/api/apioperate', {
         Username: target.pishockUsername,
         Apikey: target.pishockAPIKey,
@@ -37,6 +37,6 @@ export default async function shock(ev: DJS.CommandInteraction) {
         Intensity: arg_intensity
     });
 
-    await ev.editReply({content: res.data});
+    await ev.editReply({content: msg + '\n' + res.data});
     return;
 }
