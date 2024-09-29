@@ -3,7 +3,6 @@ import pino from 'pino';
 import * as denv from 'dotenv';
 import * as DJS from 'discord.js';
 
-
 const logger = pino()
 
 if (!process.env.TOKEN) {
@@ -32,7 +31,17 @@ CLIENT.once('ready', () => {
     logger.info('Bot is ready');
 });
 
+CLIENT.on('shardReady', (id) => {
+    logger.info(`Shard ${id} is ready`);
+});
 
+CLIENT.on('interactionCreate', async (interaction) => {
+    if (!interaction.isCommand()) return;
+
+    if (interaction.commandName === 'ping') {
+        await interaction.reply('Pong!');
+    }
+})
 
 
 CLIENT.login(process.env.TOKEN);
