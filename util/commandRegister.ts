@@ -31,7 +31,28 @@ const Commands = [
     .setName('leave')
     .setDescription('Leave the database'),
 
-    
+    new DJS.SlashCommandBuilder()
+    .setName('shock')
+    .setDescription('Shock someone! >:D')
+    .addUserOption(opt =>
+        opt.setName('user')
+        .setDescription('The user you want to shock >:3')
+        .setRequired(true)
+    )
+    .addIntegerOption(opt =>
+        opt.setName('duration')
+        .setDescription('The duration of the shock in seconds')
+        .setRequired(true)
+        .setMinValue(1)
+        .setMaxValue(10)
+    )
+    .addIntegerOption(opt =>
+        opt.setName('intensity')
+        .setDescription('The intensity of the shock')
+        .setRequired(true)
+        .setMinValue(1)
+        .setMaxValue(100)
+    ),
 
 ]
 
