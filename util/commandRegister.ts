@@ -63,6 +63,20 @@ const Commands = [
         .setMaxValue(100)
     ),
 
+    new DJS.SlashCommandBuilder()
+    .setName('setaccess')
+    .setDescription('Set your access level')
+    .addStringOption(opt =>
+        opt.setName('mode')
+        .setDescription('The mode you want to set')
+        .setRequired(true)
+        .addChoices(
+            {name: 'Open', value: 'OPEN'},
+            {name: 'Whitelist', value: 'WHITELIST'},
+            {name: 'Closed', value: 'CLOSED'}
+        )
+    )
+
 ]
 
 if (!process.env.TOKEN) {

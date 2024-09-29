@@ -15,7 +15,13 @@ export default async function shock(ev: DJS.CommandInteraction) {
         await ev.reply({content: 'User not found in the database', ephemeral: true});
         return;
     }
-    if (!target.allowedUsers.includes(ev.user.id)) {
+
+    if (target.userMode === "CLOSED") {
+        await ev.reply({content: 'This user has closed their access for now.', ephemeral: true});
+        return
+    }
+
+    if (target.userMode === "WHITELIST" && !target.allowedUsers.includes(ev.user.id)) {
         await ev.reply({content: 'You are not allowed to shock this user', ephemeral: true});
         return;
     }

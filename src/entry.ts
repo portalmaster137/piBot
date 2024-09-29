@@ -4,6 +4,8 @@ import * as denv from 'dotenv';
 import * as DJS from 'discord.js';
 import signup from "./commands/signup";
 import leave from "./commands/leave";
+import whitelist from "./commands/whitelist";
+import shock from "./commands/shock";
 
 const logger = pino()
 
@@ -48,6 +50,15 @@ CLIENT.on('interactionCreate', async (interaction) => {
     }
     else if (interaction.commandName === 'leave') {
         await leave(interaction);
+    }
+    else if (interaction.commandName === 'whitelist') {
+        await whitelist(interaction);
+    }
+    else if (interaction.commandName === 'shock') {
+        await shock(interaction);
+    }
+    else if (interaction.commandName === 'whitelist') {
+        await whitelist(interaction);
     }
 })
 
